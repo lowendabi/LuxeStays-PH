@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuxeStays Manila | Premium Collection</title>
+    <title>LuxeStays Manila | The Collection</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,13 +16,13 @@
         <div class="nav-container">
             <div class="logo">LUXE<span>STAYS</span></div>
             <div class="nav-links">
-                <a href="#" class="active">Collection</a>
-                <a href="#">Concierge</a>
-                <a href="#">Stories</a>
+                <a href="#" class="active">Hotels</a>
+                <a href="#">Villas</a>
+                <a href="#">Experiences</a>
             </div>
             <div class="nav-actions">
-                <button class="btn-text">Sign In</button>
-                <button class="btn-gold">List Property</button>
+                <button class="btn-text">Log In</button>
+                <button class="btn-gold">Join Club</button>
             </div>
         </div>
     </nav>
@@ -30,58 +30,52 @@
     <header class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="eyebrow">The Manila Collection</span>
-            <h1>Curated Luxury Sanctuaries</h1>
-            <p>Experience the finest hospitality in the heart of the Philippines.</p>
+            <span class="eyebrow">Metro Manila Collection</span>
+            <h1>Sanctuaries of Style</h1>
+            <p>Discover the finest hotels, curated for the discerning traveler.</p>
         </div>
         
         <div class="glass-search">
             <div class="search-field">
                 <label>Destination</label>
-                <input type="text" id="searchInput" value="Metro Manila" placeholder="City or Hotel">
+                <input type="text" id="searchInput" value="" placeholder="Search hotel name...">
             </div>
             <div class="divider"></div>
             <div class="search-field">
-                <label>Check-in</label>
+                <label>Dates</label>
                 <input type="date" id="checkIn">
             </div>
             <div class="divider"></div>
             <div class="search-field">
                 <label>Guests</label>
                 <select id="guestCount">
-                    <option value="1">1 Guest</option>
-                    <option value="2" selected>2 Guests</option>
-                    <option value="3">2 Guests + 1 Child</option>
+                    <option value="2">2 Adults</option>
+                    <option value="4">4 Adults</option>
                 </select>
             </div>
-            <button class="btn-search" onclick="renderHotels()">Search</button>
+            <button class="btn-search" onclick="renderHotels()">Find</button>
         </div>
     </header>
 
     <main class="container layout">
         <aside class="filters">
-            <h3>Refine Stay</h3>
+            <div class="filter-header">
+                <h3>Filters</h3>
+                <span id="resultCount" style="font-size:0.8rem; color:#777;">Loading...</span>
+            </div>
             
             <div class="filter-group">
-                <h4>Price Range</h4>
-                <input type="range" class="range-slider" min="5000" max="50000" step="1000" value="50000" oninput="updatePrice(this.value)" onchange="renderHotels()">
-                <div class="price-label">Up to <span id="priceDisplay">₱50,000</span></div>
+                <h4>Price Limit</h4>
+                <input type="range" class="range-slider" min="8000" max="30000" step="1000" value="30000" oninput="updatePrice(this.value)" onchange="renderHotels()">
+                <div class="price-label">Max: <span id="priceDisplay">₱30,000</span></div>
             </div>
 
             <div class="filter-group">
-                <h4>Amenities</h4>
-                <label class="custom-check">
-                    <input type="checkbox" value="pool" onchange="renderHotels()">
-                    <span class="checkmark"></span> Infinity Pool
-                </label>
-                <label class="custom-check">
-                    <input type="checkbox" value="spa" onchange="renderHotels()">
-                    <span class="checkmark"></span> Wellness Spa
-                </label>
-                <label class="custom-check">
-                    <input type="checkbox" value="view" onchange="renderHotels()">
-                    <span class="checkmark"></span> Skyline View
-                </label>
+                <h4>Experience</h4>
+                <label class="custom-check"><input type="checkbox" value="pool" onchange="renderHotels()"><span class="checkmark"></span> Swimming Pool</label>
+                <label class="custom-check"><input type="checkbox" value="spa" onchange="renderHotels()"><span class="checkmark"></span> Wellness Spa</label>
+                <label class="custom-check"><input type="checkbox" value="view" onchange="renderHotels()"><span class="checkmark"></span> Skyline View</label>
+                <label class="custom-check"><input type="checkbox" value="casino" onchange="renderHotels()"><span class="checkmark"></span> Casino</label>
             </div>
         </aside>
 
@@ -93,27 +87,27 @@
         <div class="modal-window">
             <div class="modal-left">
                 <div class="modal-header">
-                    <h2>Secure Booking</h2>
-                    <p>Complete your reservation details.</p>
+                    <h2>Reserve Your Stay</h2>
+                    <p>Secure transaction. No booking fees.</p>
                 </div>
                 <form id="bookingForm" onsubmit="generateReceipt(event)">
                     <div class="input-row">
                         <div class="input-wrap">
                             <label>First Name</label>
-                            <input type="text" id="fName" required>
+                            <input type="text" id="fName" required placeholder="Name">
                         </div>
                         <div class="input-wrap">
                             <label>Last Name</label>
-                            <input type="text" id="lName" required>
+                            <input type="text" id="lName" required placeholder="Surname">
                         </div>
                     </div>
                     <div class="input-wrap">
                         <label>Email Address</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" required placeholder="email@address.com">
                     </div>
                     
                     <div class="room-options">
-                        <h4>Select Suite</h4>
+                        <h4>Selection</h4>
                         <div class="room-card selected" onclick="selectRoom(0)">
                             <div class="r-info">
                                 <strong>Deluxe King</strong>
@@ -123,19 +117,19 @@
                         </div>
                         <div class="room-card" onclick="selectRoom(1)">
                             <div class="r-info">
-                                <strong>Presidential Suite</strong>
-                                <span>Bay view, 120sqm, Lounge Access</span>
+                                <strong>Signature Suite</strong>
+                                <span>Club Access, 90sqm</span>
                             </div>
                             <div class="r-price" id="p-suite">₱0</div>
                         </div>
                     </div>
 
                     <div class="total-bar">
-                        <span>Total Estimate:</span>
+                        <span>Total (inc. tax):</span>
                         <span id="liveTotal">₱0</span>
                     </div>
 
-                    <button type="submit" class="btn-confirm">Confirm & Pay</button>
+                    <button type="submit" class="btn-confirm">Complete Reservation</button>
                     <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
                 </form>
             </div>
@@ -145,9 +139,7 @@
                 <div class="modal-hotel-info">
                     <h3 id="modalTitle">Hotel Name</h3>
                     <p id="modalLoc">Location</p>
-                    <div class="rating-pill">
-                        <i class="fas fa-star"></i> <span id="modalRating">5.0</span>
-                    </div>
+                    <div class="rating-pill"><i class="fas fa-star"></i> <span id="modalRating">5.0</span></div>
                 </div>
             </div>
         </div>
@@ -157,54 +149,26 @@
         <div class="receipt-paper">
             <div class="receipt-header">
                 <div class="r-logo">LUXE<span>STAYS</span></div>
-                <div class="r-status">PAID</div>
+                <div class="r-status">CONFIRMED</div>
             </div>
-            
             <div class="receipt-body">
-                <h3>Reservation Confirmed</h3>
-                <p class="sub-text">Thank you for booking with us. A copy has been sent to your email.</p>
-                
+                <h3>Official Receipt</h3>
+                <p class="sub-text">Please present this upon check-in.</p>
                 <div class="receipt-grid">
-                    <div>
-                        <span class="label">Guest Name</span>
-                        <strong id="r-name">Juan Dela Cruz</strong>
-                    </div>
-                    <div>
-                        <span class="label">Transaction ID</span>
-                        <strong id="r-id">#LX-88291</strong>
-                    </div>
-                    <div>
-                        <span class="label">Check-in</span>
-                        <strong id="r-in">Oct 24, 2026</strong>
-                    </div>
-                    <div>
-                        <span class="label">Check-out</span>
-                        <strong id="r-out">Oct 25, 2026</strong>
-                    </div>
+                    <div><span class="label">Guest</span><strong id="r-name">--</strong></div>
+                    <div><span class="label">Ref. No.</span><strong id="r-id">--</strong></div>
+                    <div><span class="label">Check-in</span><strong id="r-in">--</strong></div>
+                    <div><span class="label">Check-out</span><strong id="r-out">--</strong></div>
                 </div>
-
                 <div class="line-items">
-                    <div class="line-row">
-                        <span id="r-room-type">Deluxe Room x 1 Night</span>
-                        <span id="r-room-price">₱15,000</span>
-                    </div>
-                    <div class="line-row">
-                        <span>Service Charge (10%)</span>
-                        <span id="r-service">₱1,500</span>
-                    </div>
-                    <div class="line-row">
-                        <span>VAT (12%)</span>
-                        <span id="r-tax">₱1,800</span>
-                    </div>
-                    <div class="line-row total">
-                        <span>TOTAL PAID</span>
-                        <span id="r-total">₱18,300</span>
-                    </div>
+                    <div class="line-row"><span id="r-room-type">Room</span><span id="r-room-price">₱0</span></div>
+                    <div class="line-row"><span>Service (10%)</span><span id="r-service">₱0</span></div>
+                    <div class="line-row"><span>VAT (12%)</span><span id="r-tax">₱0</span></div>
+                    <div class="line-row total"><span>TOTAL</span><span id="r-total">₱0</span></div>
                 </div>
             </div>
-
             <div class="receipt-footer">
-                <button class="btn-print" onclick="window.print()"><i class="fas fa-print"></i> Print Receipt</button>
+                <button class="btn-print" onclick="window.print()"><i class="fas fa-print"></i> Print</button>
                 <button class="btn-close-receipt" onclick="closeReceipt()">Close</button>
             </div>
         </div>
