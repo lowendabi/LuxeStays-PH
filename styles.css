@@ -1,0 +1,466 @@
+:root {
+    --primary-blue: #003580; /* Booking.com style blue */
+    --primary-light: #ebf3ff;
+    --accent-yellow: #febb02;
+    --text-dark: #1a1a1a;
+    --text-gray: #6b6b6b;
+    --border-color: #e7e7e7;
+    --bg-color: #f5f5f5;
+    --green-badge: #008009;
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: #006ce4;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--primary-blue);
+    padding: 15px 0;
+    color: white;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent-yellow);
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.btn-signin {
+    background: white;
+    color: var(--primary-blue) !important;
+    padding: 8px 15px;
+    border-radius: 2px;
+    font-weight: 600 !important;
+}
+
+.btn-signin:hover {
+    background: var(--primary-light);
+    text-decoration: none !important;
+}
+
+/* --- Hero Search --- */
+.hero {
+    background-color: var(--primary-blue);
+    padding-bottom: 60px;
+    position: relative;
+    color: white;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 80px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Search Box Container */
+.search-box {
+    background: var(--accent-yellow);
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    gap: 4px;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1160px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.search-item {
+    background: white;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 2px;
+}
+
+.search-item i {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    margin-right: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    font-family: var(--font-main);
+    width: 100%;
+}
+
+.search-btn {
+    background: #006ce4;
+    color: white;
+    border: none;
+    padding: 0 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.search-btn:hover {
+    background: #0057b8;
+}
+
+/* --- Main Layout --- */
+.layout-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+/* Sidebar Filters */
+.sidebar {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 20px;
+    height: fit-content;
+}
+
+.filter-group h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h4 {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.checkbox {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.checkbox input {
+    margin-right: 8px;
+}
+
+/* Listings */
+.listings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.listings-header h2 {
+    font-size: 1.5rem;
+}
+
+.sort-options select {
+    padding: 8px;
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
+    background: white;
+    cursor: pointer;
+}
+
+/* --- Hotel Cards --- */
+.hotel-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    display: flex;
+    margin-bottom: 20px;
+    padding: 15px;
+    transition: 0.2s;
+}
+
+.hotel-card:hover {
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.hotel-img {
+    position: relative;
+    width: 240px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.hotel-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.wishlist-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.hotel-details {
+    flex: 1;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.hotel-details h3 {
+    font-size: 1.3rem;
+    color: #006ce4;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.stars {
+    color: var(--accent-yellow);
+    font-size: 0.8rem;
+}
+
+.location {
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.badges {
+    margin-bottom: 10px;
+}
+
+.badge-green {
+    font-size: 0.75rem;
+    color: var(--green-badge);
+    font-weight: 700;
+    margin-right: 10px;
+    border-left: 2px solid var(--green-badge);
+    padding-left: 5px;
+}
+
+.badge-gray {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    font-weight: 600;
+}
+
+.description {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-top: auto;
+    border-left: 2px solid #ddd;
+    padding-left: 10px;
+}
+
+.hotel-price {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    border-left: 1px solid var(--border-color);
+    padding-left: 15px;
+}
+
+.rating-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.score-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.score {
+    background: var(--primary-blue);
+    color: white;
+    padding: 5px;
+    border-radius: 6px 6px 6px 0;
+    font-weight: 700;
+    font-size: 1rem;
+    min-width: 35px;
+    text-align: center;
+}
+
+.price-box {
+    margin-top: auto;
+}
+
+.nights {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    margin-bottom: 5px;
+}
+
+.amount {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.taxes {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+}
+
+.btn-check {
+    width: 100%;
+    background: #006ce4;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-check:hover {
+    background: #0057b8;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--primary-blue);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .layout-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        display: none; /* Hide sidebar on mobile for simplicity */
+    }
+
+    .hotel-card {
+        flex-direction: column;
+    }
+
+    .hotel-img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .hotel-price {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        padding-left: 0;
+        padding-top: 15px;
+        margin-top: 15px;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .price-box {
+        text-align: right;
+    }
+
+    .search-box {
+        flex-direction: column;
+        position: static;
+        transform: none;
+        width: 100%;
+        margin-top: 30px;
+    }
+}
